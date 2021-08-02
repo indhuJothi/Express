@@ -1,0 +1,10 @@
+const express = require('express')
+const app = express()
+const path = require('path')
+const dotenv = require('dotenv')
+dotenv.config()
+const port = process.env.PORT
+// app.use(express.static('public'))
+// app.use('/static',express.static('public'))
+app.use('/static', express.static(path.join(__dirname, 'public')))
+app.listen(port,()=>console.log(`I am listening to the port ${port}`))
